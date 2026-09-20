@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<!-- 
+  DORRAH TRENDS — starter website
+  ---------------------------------
+  This file is commented throughout to help you learn as you read it.
+  Structure of this page (in order):
+    1. <head>   -> page settings, title, fonts, link to style.css
+    2. <nav>    -> top navigation bar
+    3. <header> -> hero/banner section
+    4. <section id="about">   -> short brand story
+    5. <section id="catalog"> -> the dress grid (this is your "shop")
+    6. <section id="contact"> -> how customers reach you
+    7. <footer> -> bottom of page
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <!-- This makes the site scale correctly on phones -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dorrah Trends — Effortless Everyday Elegance</title>
+
+  <!-- Google Fonts: a serif for headings (elegant) + a clean sans for body text -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <!-- Our own stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ============ NAVIGATION ============ -->
+  <nav class="navbar">
+    <div class="nav-inner">
+       <div class="brand">
+  <a href="#" class="logo">
+    <img src="images/logo.png" alt="Dorrah Trends logo">
+  </a>
+  <span class="location">Kavumpadi, Pallikkal Bazar</span>
+</div>
+      <ul class="nav-links">
+        <li><a href="#about">Our Story</a></li>
+        <li><a href="#catalog">Catalog</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ============ HERO SECTION ============ -->
+  <header class="hero">
+    <div class="hero-content">
+      <p class="eyebrow">Handpicked dresses, made to be worn</p>
+      <h1>Dresses for<br><em>every</em> occasion</h1>
+      <p class="hero-sub">Browse the collection below, then message us directly to order your size and color.</p>
+      <a href="#catalog" class="btn-primary">View Catalog</a>
+    </div>
+  </header>
+
+  <!-- scalloped divider (a small decorative SVG — a nod to fabric trim) -->
+  <div class="scallop-divider" aria-hidden="true"></div>
+
+  <!-- ============ ABOUT / BRAND STORY ============ -->
+  <section id="about" class="about">
+    <h2>Our Story</h2>
+    <p>
+      Where tradition meets modern elegance. ✨
+      We believe every woman deserves outfits that make her feel confident, beautiful, and uniquely herself. Our collection brings together timeless traditional styles and contemporary fashion, carefully chosen for the modern woman.
+      From graceful ethnic wear to chic modern outfits, we celebrate every mood, occasion, and personality — because fashion isn't just about what you wear, it's about how you feel. 🤍
+
+    </p>
+  </section>
+
+  <!-- ============ CATALOG ============ -->
+  <section id="catalog" class="catalog">
+    <h2>The Collection</h2>
+    <p class="section-sub">Tap "Enquire" on any piece to order via WhatsApp or Instagram.</p>
+
+    <!-- 
+      This is a CSS GRID — one of the most useful layout tools you'll learn.
+      Each ".dress-card" below is one product. Duplicate a card and edit its
+      text/image to add more dresses. The grid automatically wraps them into
+      rows based on the screen width (see style.css for how).
+    -->
+    <div class="dress-grid">
+
+      <article class="dress-card">
+        <img src="images/shimmer%20gown%20gowns.jpeg" alt="shimmer gown gowns" class="dress-img">
+        <h3>Shimmer gown</h3>
+         
+        <p class="sizes">Sizes: S · M · L · XL</p>
+        <a href="https://wa.me/919207818100?text=Hi!%20I'm%20interested%20in%20the%20Shimmer%20Gown" class="btn-enquire">Enquire</a>
+      </article>
+
+      <article class="dress-card">
+        <img src="images/cord%20set..jpeg" alt="cord set." class="dress-img"> 
+        <h3>Cord set</h3>
+        <p class="sizes">Sizes: S · M · L</p>
+        <p class="colours">Available in other colours also</p>
+        <a href="https://wa.me/919207818100?text=Hi!%20I'm%20interested%20in%20the%20cord%20set" class="btn-enquire">Enquire</a>
+      </article>
+
+      <article class="dress-card">
+        <img src="images/cheetah%20print%20hijab.zera.jpeg" alt="cheetah print hijab.zera" class="dress-img">
+        <h3>Cheetah print hijab</h3>
+         
+        <p class="sizes">Sizes: S · M · L · XL</p>
+        <a href="https://wa.me/919207818100?text=Hi!%20I'm%20interested%20in%20the%20cheetah%20print%20hijab" class="btn-enquire">Enquire</a>
+      </article>
+
+      <article class="dress-card">
+        <img src="images/Imported%20gown.jpeg" alt="Imported gown" class="dress-img">
+        <h3>Imported gown</h3>
+         
+        <p class="sizes">Sizes: S · M · L · XL</p>
+        <p class="colours">Available in other colours also</p>
+        <a href="https://wa.me/919207818100?text=Hi!%20I'm%20interested%20in%20the%20Imported%20Gown" class="btn-enquire">Enquire</a>
+      </article>
+
+
+      <article class="dress-card">
+  <img src="images/Imported%20kaftan.jpeg" alt="Imported kaftan" class="dress-img">
+  <h3>Imported kaftan</h3>
+  <p class="sizes">Sizes: S · M · L · XL</p>
+  <p class="colours">Available in other colours also</p>
+  <a href="https://wa.me/919207818100?text=Hi!%20I'm%20interested%20in%20the%20Kafthan" class="btn-enquire">Enquire</a>
+</article>
+
+
+      <article class="dress-card">
+        <img src="images/shimmer%20hijab.zera.jpeg" alt="shimmer hijab.zera" class="dress-img">
+        <h3>Shimmer hijab</h3>
+         
+        <p class="sizes">Sizes: S · M · L · XL</p>
+        <a href="https://wa.me/919207818100?text=Hi!%20I'm%20interested%20in%20the%20Shimmer%20hijab" class="btn-enquire">Enquire</a>
+      </article>
+
+      <article class="dress-card">
+        <img src="images/short%20tops.jpeg" alt="short tops" class="dress-img">
+        <h3>Short top</h3>
+         
+        <p class="sizes">Sizes: S · M · L · XL</p>
+        <a href="https://wa.me/919207818100?text=Hi!%20I'm%20interested%20in%20the%20Short%20top" class="btn-enquire">Enquire</a>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- ============ CONTACT ============ -->
+  <section id="contact" class="contact">
+    <h2>Get In Touch</h2>
+    <p>Have a question about sizing or an order? Reach us directly:</p>
+    <div class="contact-links">
+      <a href="https://wa.me/919207818100" class="btn-primary">WhatsApp Us</a>
+      <a href="https://instagram.com/dorrahtrends_ladies" class="btn-outline">Instagram</a>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <footer>
+    <p>&copy; 2026 Dorrah Trends. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>

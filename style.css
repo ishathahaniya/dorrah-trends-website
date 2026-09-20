@@ -1,0 +1,342 @@
+/* ============================================
+   DORRAH TRENDS — style.css
+   ============================================
+   Read this top to bottom — it's organized in the
+   same order as the sections in index.html.
+   Comments explain WHY each rule is there, not just what it does.
+*/
+
+/* ---------- 1. DESIGN TOKENS ----------
+   CSS "variables" (custom properties). Defining colors/fonts once
+   here means you can change the whole site's look by editing ONE line,
+   instead of hunting through the whole file. */
+:root {
+  --wine: #616cd5;        /* primary brand color — deep wine/burgundy */
+  --wine-dark: #0d486d;   /* darker shade, used for hover states */
+  --blush: #eddae8;       /* soft blush accent background */
+  --gold: #b8935a;        /* muted gold accent for small details */
+  --ink: #2b2024;         /* near-black text color (softer than pure black) */
+  --bg: #debdf0;          /* warm ivory page background */
+  --card-bg: #ffffff;
+
+  --font-display: 'Cormorant Garamond', serif; /* headings */
+  --font-body: 'Jost', sans-serif;              /* body text */
+}
+
+/* ---------- 2. RESET ----------
+   Browsers apply their own default spacing to elements.
+   This zeroes that out so YOUR spacing choices are the only ones that matter. */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* makes width/height calculations much more predictable */
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--ink);
+  background: var(--bg);
+  line-height: 1.6;
+}
+
+h1, h2, h3 {
+  font-family: var(--font-display);
+  font-weight: 600;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* ---------- 3. NAVIGATION ---------- */
+.navbar {
+  background: var(--bg);
+  position: sticky;   /* stays pinned to top as the user scrolls */
+  top: 0;
+  z-index: 10;
+  border-bottom: 1px solid rgba(110, 43, 63, 0.15);
+}
+
+.nav-inner {
+  max-width: 1100px;
+  margin: 0 auto;      /* centers the content horizontally */
+  padding: 1.2rem 1.5rem;
+  display: flex;                 /* FLEXBOX: lays children out in a row */
+  justify-content: space-between; /* pushes
+   left, links right */
+  align-items: center;
+}
+
+.logo {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: var(--wine);
+}
+.brand {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.2rem;
+}
+.logo img {
+  height: 42px;
+  width: 42px;
+  border-radius: 50%;   /* this is what makes it a circle */
+  object-fit: cover;    /* keeps the image from stretching inside the circle */
+}
+.location {
+  font-size: 0.7rem;
+  color: #7a6d71;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}
+.logo span {
+  color: var(--gold);
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;      /* flexbox again, this time for the menu items */
+  gap: 2rem;           /* space between each link — no margin hacks needed */
+}
+
+.nav-links a {
+  font-size: 0.95rem;
+  letter-spacing: 0.03em;
+  transition: color 0.2s ease;
+}
+.nav-links a:hover {
+  color: var(--wine);
+}
+
+/* ---------- 4. HERO ---------- */
+.hero {
+  padding: 6rem 1.5rem 5rem;
+  text-align: center;
+  background: linear-gradient(180deg, var(--blush) 0%, var(--bg) 100%);
+}
+
+.hero-content {
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  font-size: 0.8rem;
+  color: var(--wine);
+  margin-bottom: 1rem;
+}
+
+.hero h1 {
+  font-size: 3.4rem;
+  line-height: 1.1;
+  margin-bottom: 1.2rem;
+}
+.hero h1 em {
+  color: var(--wine);
+  font-style: italic;
+}
+
+.hero-sub {
+  font-size: 1.05rem;
+  color: #5a4e52;
+  margin-bottom: 2rem;
+}
+
+.btn-primary {
+  display: inline-block;
+  background: var(--wine);
+  color: #fff;
+  padding: 0.85rem 2rem;
+  border-radius: 999px;   /* fully rounded "pill" button */
+  font-size: 0.95rem;
+  letter-spacing: 0.02em;
+  transition: background 0.2s ease;
+}
+.btn-primary:hover {
+  background: var(--wine-dark);
+}
+
+.btn-outline {
+  display: inline-block;
+  border: 1.5px solid var(--wine);
+  color: var(--wine);
+  padding: 0.8rem 2rem;
+  border-radius: 999px;
+  font-size: 0.95rem;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+.btn-outline:hover {
+  background: var(--wine);
+  color: #fff;
+}
+
+/* ---------- 5. SCALLOP DIVIDER (signature detail) ----------
+   A small repeating scalloped edge — a nod to fabric/hem trim,
+   used as a quiet decorative divider between sections. */
+.scallop-divider {
+  height: 20px;
+  background-image: radial-gradient(circle at 10px -5px, transparent 12px, var(--bg) 13px);
+  background-size: 20px 20px;
+  background-position: top;
+  background-color: var(--blush);
+}
+
+/* ---------- 6. ABOUT SECTION ---------- */
+.about {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 4rem 1.5rem;
+  text-align: center;
+}
+.about h2 {
+  font-size: 2rem;
+  margin-bottom: 1.2rem;
+  color: var(--wine);
+}
+.about p {
+  color: #5a4e52;
+}
+
+/* ---------- 7. CATALOG / GRID ----------
+   This is where CSS GRID does the heavy lifting.
+   grid-template-columns tells the browser: "fit as many columns as
+   possible, each at least 260px wide, and share the space evenly."
+   That single line is what makes this responsive without a media query. */
+.catalog {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem 5rem;
+  text-align: center;
+}
+.catalog h2 {
+  font-size: 2rem;
+  color: var(--wine);
+}
+.section-sub {
+  color: #5a4e52;
+  margin-bottom: 2.5rem;
+}
+
+.dress-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2rem;
+  text-align: left;
+}
+
+.dress-card {
+  background: var(--card-bg);
+  border-radius: 14px;
+  overflow: hidden;         /* keeps the image's rounded corners clean */
+  box-shadow: 0 4px 18px rgba(43, 32, 36, 0.08);
+  transition: transform 0.2s ease;
+}
+.dress-card:hover {
+  transform: translateY(-4px); /* subtle lift on hover */
+}
+
+/* These "placeholder" boxes stand in for real photos.
+   Once you have product photos, replace the <div class="dress-img">
+   in index.html with: <img src="images/your-photo.jpg" alt="Dress name"> */
+.dress-img {
+  height: 320px;
+  width: 100%;
+  object-fit: cover;
+  display: block;
+}
+.placeholder-1 { background: linear-gradient(135deg, #b8935a, #6e2b3f); }
+.placeholder-2 { background: linear-gradient(135deg, #6e2b3f, #2b2024); }
+.placeholder-3 { background: linear-gradient(135deg, #eddadb, #b8935a); }
+
+.dress-card h3 {
+  font-size: 1.3rem;
+  padding: 1.2rem 1.2rem 0.3rem;
+}
+.dress-card .price {
+  padding: 0 1.2rem;
+  color: var(--wine);
+  font-weight: 500;
+}
+.dress-card .sizes {
+  padding: 0.3rem 1.2rem 1rem;
+  font-size: 0.85rem;
+  color: #7a6d71;
+}
+
+.btn-enquire {
+  display: block;
+  text-align: center;
+  background: var(--blush);
+  color: var(--wine-dark);
+  padding: 0.8rem;
+  font-weight: 500;
+  transition: background 0.2s ease;
+}
+.btn-enquire:hover {
+  background: var(--gold);
+  color: #fff;
+}
+
+/* ---------- 8. CONTACT ---------- */
+.contact {
+  background: var(--wine);
+  color: #fff;
+  text-align: center;
+  padding: 4rem 1.5rem;
+}
+.contact h2 {
+  color: #fff;
+  font-size: 2rem;
+  margin-bottom: 0.8rem;
+}
+.contact p {
+  color: rgba(255,255,255,0.8);
+  margin-bottom: 2rem;
+}
+.contact-links {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap; /* lets buttons stack on very small screens */
+}
+.contact .btn-primary {
+  background: #fff;
+  color: var(--wine);
+}
+.contact .btn-primary:hover {
+  background: var(--blush);
+}
+.contact .btn-outline {
+  border-color: #fff;
+  color: #fff;
+}
+.contact .btn-outline:hover {
+  background: #fff;
+  color: var(--wine);
+}
+
+/* ---------- 9. FOOTER ---------- */
+footer {
+  text-align: center;
+  padding: 1.5rem;
+  font-size: 0.85rem;
+  color: #8a7d81;
+}
+
+/* ---------- 10. RESPONSIVE / MOBILE ----------
+   A "media query" — CSS rules that only apply below a certain
+   screen width. This is how the same HTML looks right on phones. */
+@media (max-width: 600px) {
+  .hero h1 {
+    font-size: 2.3rem;
+  }
+  .nav-links {
+    gap: 1rem;
+    font-size: 0.85rem;
+  }
+}
